@@ -1,3 +1,6 @@
+# 1.0.1
+- Lower required NF version to 21.0.81-beta.
+- Loosen required Minecraft version strictness
 # Pave The Way - 1.0.0
 - Add dirt path from Blockus, thanks to Brandcraft for allowing us to use the textures.
 - Pave The Way's dirt path can be made by flattening Vanilla's dirt path.
