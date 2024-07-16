@@ -1,0 +1,38 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "pavetheway:block/dirt_path_1",
+        "weight": 9
+      },
+      {
+        "model": "pavetheway:block/dirt_path_2",
+        "weight": 4
+      },
+      {
+        "model": "pavetheway:block/dirt_path_3",
+        "weight": 7
+      },
+      {
+        "model": "pavetheway:block/dirt_path_4",
+        "weight": 4
+      },
+      {
+        "model": "pavetheway:block/dirt_path_5",
+        "weight": 3
+      },
+      {
+        "model": "pavetheway:block/dirt_path_6",
+        "weight": 6
+      },
+      {
+        "model": "pavetheway:block/dirt_path_7",
+        "weight": 4
+      },
+      {
+        "model": "pavetheway:block/dirt_path_8",
+        "weight": 4
+      }
+    ]
+  }
+}

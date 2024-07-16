@@ -1,0 +1,7 @@
+{
+  "parent": "block/dirt_path",
+  "textures": {
+    "top": "pavetheway:block/dirt_path_3",
+    "side": "pavetheway:block/dirt_path_side"
+  }
+}

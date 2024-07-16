@@ -1,0 +1,28 @@
+modLoader="javafml" #mandatory
+loaderVersion="${loader_version_range}" #mandatory
+license="${mod_license}"
+issueTrackerURL="https://github.com/TeamAOF/Pave-The-Way/issues/"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+#displayURL="CHANGE TO CF RELEASE WHEN CREATED"
+#logoFile="pavetheway.png"
+credits="Brandcraft - Dirt path texture from Blockus"
+authors="${mod_authors}" #optional
+description='''${mod_description}'''
+
+[[dependencies.${mod_id}]] #optional
+    modId="neoforge" #mandatory
+    type="required" #mandatory
+    versionRange="${neo_version_range}" #mandatory
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
