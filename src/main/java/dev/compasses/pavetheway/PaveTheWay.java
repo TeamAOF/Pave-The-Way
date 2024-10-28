@@ -4,6 +4,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.DirtPathBlock;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.util.Lazy;
@@ -28,7 +29,7 @@ public class PaveTheWay {
     public PaveTheWay(IEventBus modBus) {
         modBus.addListener(this::registerContent);
         modBus.addListener(this::addCreative);
-        NeoForge.EVENT_BUS.addListener(this::onToolUsed);
+        NeoForge.EVENT_BUS.addListener(EventPriority.LOWEST, this::onToolUsed);
     }
 
     private void registerContent(final RegisterEvent event) {
@@ -45,14 +46,17 @@ public class PaveTheWay {
     private void onToolUsed(BlockEvent.BlockToolModificationEvent event) {
         if (event.getItemAbility() == ItemAbilities.SHOVEL_FLATTEN) {
             if (event.getContext().isSecondaryUseActive()) {
-                if (event.getState().is(Blocks.DIRT_PATH) || event.getState().is(DIRT_PATH_BLOCK.get())) {
+                if (event.getState().is(DIRT_PATH_BLOCK.get())) {
                     event.setFinalState(Blocks.DIRT.defaultBlockState());
-                } else {
-                    event.setCanceled(true);
+                    return;
                 }
-            } else if (event.getState().is(Blocks.DIRT_PATH)) {
+            }
+
+            if (event.getState().is(Blocks.DIRT_PATH)) {
                 event.setFinalState(DIRT_PATH_BLOCK.get().defaultBlockState());
             }
+        } else if (event.getItemAbility() == ItemAbilities.HOE_TILL && event.getState().is(DIRT_PATH_BLOCK.get())) {
+            event.setFinalState(Blocks.FARMLAND.defaultBlockState());
         }
     }
 }
